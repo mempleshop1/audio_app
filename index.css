@@ -1,0 +1,154 @@
+body {
+    background-color: black;
+    margin: 0px;
+}
+p {
+    margin: 0px;
+}
+
+#age-confirmation-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999999;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 1);
+    background-image: url("./modal-bg.png");
+    width: 100%;
+    height: auto;
+    background-repeat: no-repeat;
+    text-align: center;
+    cursor: alias;
+    font-size: 2.5rem;
+}
+
+#age-confirmation-modal .innerContainer {
+    background-color: #fff;
+    color: #111111;
+    padding: 15px;
+    border-radius: 20px;
+    display: inline-block;
+    top: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#takemicpermission {
+    display: none;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+#permissioninstruction {
+    margin: auto;
+    margin-top: 10%;
+    width: fit-content;
+    border: 20px solid white;
+    padding: 20px;
+    color: white;
+}
+
+#windowsscreen {
+    display: none;
+    cursor: none;
+    background-color: blue;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+#windowsmodal {
+    cursor: pointer;
+    display: none;
+    background-color: white;
+    position: absolute;
+    color: black;
+    padding: 20px;
+    width: 550px;
+    margin: auto;
+    margin-top: 10%;
+    border-radius: 5px;
+    left: 30%;
+}
+
+#windowsmodal1 {
+    cursor: none;
+    background-color: #eee;
+    position: absolute;
+    color: black;
+    padding: 20px;
+    width: 450px;
+    margin: auto;
+    margin-top: 8%;
+    left: 35%;
+    animation: zoom-in-zoom-out 3s ease infinite;
+}
+
+@keyframes zoom-in-zoom-out {
+    0% {
+        transform: scale(1, 1);
+    }
+    50% {
+        transform: scale(1.3, 1.3);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
+}
+
+#connectedScreen {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+/* spinner css */
+.centered {
+    text-align: center;
+}
+
+.spinner.loading {
+    padding: 100px;
+    text-align: center;
+}
+
+.loading-text {
+    width: 90px;
+    position: absolute;
+    top: calc(50% - 15px);
+    left: calc(50% - 30px);
+    text-align: center;
+}
+
+.spinner.loading:before {
+    content: "";
+    height: 200px;
+    width: 200px;
+    background-color: white;
+    margin: -40px auto auto -65px;
+    position: absolute;
+    top: calc(50% - 25px);
+    left: calc(50% - 30px);
+    border-width: 8px;
+    border-style: solid;
+    border-color: black #ccc #ccc;
+    border-radius: 100%;
+    animation: rotation 0.7s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
